@@ -7,61 +7,89 @@ class MemberScreen extends StatefulWidget {
 }
 
 class _MemberScreenState extends State<MemberScreen> {
-  String dropdownValue = 'One';
-  var countreiesList = ['Rio de Janeiro', 'Miami', 'Palma de Mallorca'];
+  String cidadeEscolhida = 'Rio de Janeiro';
+  String cidade = 'Change city';
+  int _index = 0;
+
+  DropdownButton<String> getDropDownButton() {
+    return DropdownButton<String>(
+      value: cidade,
+      items: getCities(),
+      onChanged: (value) async {
+        setState(() {
+          value != 'Change city' ? cidadeEscolhida = value : value;
+        });
+      },
+    );
+  }
+
+  List<DropdownMenuItem> getCities() {
+    List<DropdownMenuItem<String>> iList = [];
+    for (var i = 0; i < countriesList.length; i++) {
+      iList.add(
+        DropdownMenuItem(
+            child: Text(countriesList[i]), value: countriesList[i]),
+      );
+    }
+    return iList;
+  }
 
   @override
   Widget build(BuildContext context) {
-    String cidade = 'Rio de Janeiro';
-
     return Scaffold(
       body: Container(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+//          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            //        Cidade
+//  Cidade banner
             Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/rio.jpg'),
-                  fit: BoxFit.cover,
+                  fit: BoxFit.fill,
                 ),
               ),
-              height: 250,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    cidade,
-                    style: TextStyle(color: Colors.black, fontSize: 40),
-                  ),
-                  DropdownButton<String>(
-                    value: 'ou',
-                    icon: Icon(Icons.arrow_downward),
-                    iconSize: 24,
-                    elevation: 16,
-                    style: TextStyle(color: Colors.deepPurple),
-                    underline: Container(
-                      height: 2,
-                      color: Colors.deepPurpleAccent,
+              height: 200,
+              width: double.infinity,
+//       Texto
+              child: Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(top: 30),
+                      child: Text(
+                        cidadeEscolhida,
+                        style: TextStyle(color: Colors.black, fontSize: 40),
+                      ),
                     ),
-                    onChanged: (String newValue) {
-                      setState(() {
-                        dropdownValue = newValue;
-                      });
-                    },
-                    items: countreiesList
-                        .map<DropdownMenuItem<String>>((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value),
-                      );
-                    }).toList(),
-                  ),
-                ],
+                    Container(
+                      child: getDropDownButton(),
+                    ),
+                  ],
+                ),
               ),
-            )
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 30),
+              child: Center(
+                child: SizedBox(
+                  height: 250,
+                  // card height
+                  child: PageView(
+                    controller: PageController(viewportFraction: 0.7),
+                    onPageChanged: (int index) =>
+                        setState(() => _index = index),
+                    children: <Widget>[
+                      CardCreator(),
+                      CardCreator(),
+                    ],
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
