@@ -21,7 +21,9 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
-                Colors.white.withOpacity(0.68), BlendMode.srcOver),
+                Color.fromRGBO(28, 163, 157, 80), BlendMode.srcOver),
+//            colorFilter: ColorFilter.mode(
+//                Colors.white.withOpacity(0.68), BlendMode.srcOver),
           ),
         ),
         child: BackdropFilter(
@@ -32,14 +34,14 @@ class _LoginScreenState extends State<LoginScreen> {
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: Icon(
-                      Icons.adjust,
-                      color: Colors.black,
-                      size: 80,
-                    ),
-                  ),
+//                  Padding(
+//                    padding: const EdgeInsets.all(4.0),
+//                    child: Icon(
+//                      Icons.adjust,
+//                      color: kCorBranco,
+//                      size: 80,
+//                    ),
+//                  ),
                   Padding(
                     padding: const EdgeInsets.only(top: 1),
                     child: Text(
@@ -50,16 +52,26 @@ class _LoginScreenState extends State<LoginScreen> {
                   Padding(
                     padding: const EdgeInsets.only(bottom: 40),
                     child: Text(
-                      'a boat ready for you in the best spot',
+                      'em qualquer lugar permita-se navegar',
+//                      'your sea tribe',
                       style: kFontStyle3,
                     ),
                   ),
                   Container(
+//                    color: kCorBranco,
                     width: 200,
                     child: TextField(
                       style: kFontStyle3,
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
+                        contentPadding: EdgeInsets.only(top: 1, bottom: 1),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(50),
+                          ),
+                        ),
+                        filled: true,
+                        fillColor: kCorBrancoTrans,
                         hintText: 'User Name',
                         hintStyle: kFontStyle3,
                       ),
@@ -80,13 +92,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   Padding(
                     padding: const EdgeInsets.only(top: 8),
                     child: FlatButton(
-                      color: Colors.black,
+                      color: kCorBranco,
                       onPressed: () {
                         Navigator.pushNamed(context, '/memberScreen');
                       },
                       child: Text(
                         'Log In',
-                        style: kFontStyleW,
+                        style: kFontStyleB,
                       ),
                     ),
                   ),

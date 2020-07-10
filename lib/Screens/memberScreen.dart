@@ -20,7 +20,7 @@ class _MemberScreenState extends State<MemberScreen> {
       items: getCities(),
       onChanged: (value) async {
         setState(() {
-          value != 'Change city' ? cidadeEscolhida = value : value;
+          value != 'Outro destino' ? cidadeEscolhida = value : value;
         });
       },
     );
@@ -40,7 +40,7 @@ class _MemberScreenState extends State<MemberScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFF1CA39D),
       body: ListView(
 //          crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
@@ -48,7 +48,7 @@ class _MemberScreenState extends State<MemberScreen> {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/rio.jpg'),
+                image: AssetImage('assets/rio_vec3.jpg'),
                 fit: BoxFit.fill,
               ),
             ),
@@ -56,7 +56,7 @@ class _MemberScreenState extends State<MemberScreen> {
             width: double.infinity,
 //       Texto
             child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 1, sigmaY: 1),
+              filter: ImageFilter.blur(sigmaX: 0, sigmaY: 0),
               child: Padding(
                 padding: const EdgeInsets.only(left: 10),
                 child: Column(
@@ -67,7 +67,7 @@ class _MemberScreenState extends State<MemberScreen> {
                       padding: const EdgeInsets.only(top: 30),
                       child: Text(
                         cidadeEscolhida,
-                        style: TextStyle(color: Colors.white, fontSize: 40),
+                        style: kFontStyleCidade,
                       ),
                     ),
                     Container(
@@ -113,9 +113,40 @@ class _MemberScreenState extends State<MemberScreen> {
               ),
             ),
           ),
-//  Noticias
+//  Reservas
           Padding(
             padding: const EdgeInsets.only(top: 30, left: 10),
+            child: Text(
+              'Próximo Destino',
+              style: kFontStyle3,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 5, bottom: 5),
+            child: Center(
+              child: SizedBox(
+                height: 150,
+                // card height
+                child: PageView(
+                  controller: PageController(viewportFraction: 0.7),
+                  onPageChanged: (int index) => setState(() => _index = index),
+                  children: <Widget>[
+                    NewsCardCreator(
+                      imagem: 'assets/b1.jpg',
+                      nomeMateria: '06/12 - 08/12',
+                    ),
+                    NewsCardCreator(
+                      imagem: 'assets/b1.jpg',
+                      nomeMateria: '03/10 - 05/10',
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+//  Noticias
+          Padding(
+            padding: const EdgeInsets.only(top: 15, left: 10),
             child: Text(
               'What\'s happening! ',
               style: kFontStyle3,
@@ -125,7 +156,7 @@ class _MemberScreenState extends State<MemberScreen> {
             padding: const EdgeInsets.only(top: 5, bottom: 20),
             child: Center(
               child: SizedBox(
-                height: 250,
+                height: 150,
                 // card height
                 child: PageView(
                   controller: PageController(viewportFraction: 0.7),
