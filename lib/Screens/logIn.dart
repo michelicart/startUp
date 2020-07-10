@@ -1,6 +1,6 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'constants.dart';
 
 //import 'package:startup/Screens/memberScreen.dart';
 
@@ -44,31 +44,35 @@ class _LoginScreenState extends State<LoginScreen> {
                     padding: const EdgeInsets.only(top: 1),
                     child: Text(
                       'Kaiē',
-                      style: TextStyle(fontSize: 45),
+                      style: kFontStyleTitulo,
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 40),
                     child: Text(
                       'a boat ready for you in the best spot',
-                      style: TextStyle(fontSize: 15),
+                      style: kFontStyle3,
                     ),
                   ),
                   Container(
                     width: 200,
                     child: TextField(
+                      style: kFontStyle3,
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
                         hintText: 'User Name',
+                        hintStyle: kFontStyle3,
                       ),
                     ),
                   ),
                   Container(
                     width: 200,
                     child: TextField(
+                      style: kFontStyle3,
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
                         hintText: 'Password',
+                        hintStyle: kFontStyle3,
                       ),
                     ),
                   ),
@@ -82,14 +86,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       },
                       child: Text(
                         'Log In',
-                        style: TextStyle(color: Colors.white),
+                        style: kFontStyleW,
                       ),
                     ),
                   ),
                 ],
               ),
               Container(
-                height: 170,
+                height: 120,
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 10),
@@ -102,12 +106,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       },
                       child: Text(
                         'Become a Member',
-                        style: TextStyle(fontSize: 12),
+                        style: kFontStyleTiny,
                       ),
                     ),
                     Text(
                       'Forgot Password',
-                      style: TextStyle(fontSize: 12),
+                      style: kFontStyleTiny,
                     ),
                   ],
                 ),

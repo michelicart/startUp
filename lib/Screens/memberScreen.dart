@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'constants.dart';
 
@@ -14,6 +16,7 @@ class _MemberScreenState extends State<MemberScreen> {
   DropdownButton<String> getDropDownButton() {
     return DropdownButton<String>(
       value: cidade,
+      style: kFontStyle3,
       items: getCities(),
       onChanged: (value) async {
         setState(() {
@@ -37,21 +40,23 @@ class _MemberScreenState extends State<MemberScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: Column(
+      backgroundColor: Colors.white,
+      body: ListView(
 //          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
+        children: <Widget>[
 //  Cidade banner
-            Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/rio.jpg'),
-                  fit: BoxFit.fill,
-                ),
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/rio.jpg'),
+                fit: BoxFit.fill,
               ),
-              height: 200,
-              width: double.infinity,
+            ),
+            height: 150,
+            width: double.infinity,
 //       Texto
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 1, sigmaY: 1),
               child: Padding(
                 padding: const EdgeInsets.only(left: 10),
                 child: Column(
@@ -62,7 +67,7 @@ class _MemberScreenState extends State<MemberScreen> {
                       padding: const EdgeInsets.only(top: 30),
                       child: Text(
                         cidadeEscolhida,
-                        style: TextStyle(color: Colors.black, fontSize: 40),
+                        style: TextStyle(color: Colors.white, fontSize: 40),
                       ),
                     ),
                     Container(
@@ -72,26 +77,74 @@ class _MemberScreenState extends State<MemberScreen> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 30),
-              child: Center(
-                child: SizedBox(
-                  height: 250,
-                  // card height
-                  child: PageView(
-                    controller: PageController(viewportFraction: 0.7),
-                    onPageChanged: (int index) =>
-                        setState(() => _index = index),
-                    children: <Widget>[
-                      CardCreator(),
-                      CardCreator(),
-                    ],
-                  ),
+          ),
+//  Barcos
+          Padding(
+            padding: const EdgeInsets.only(top: 30, left: 10),
+            child: Text(
+              'Avaliable Boats',
+              style: kFontStyle3,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 5,
+            ),
+            child: Center(
+              child: SizedBox(
+                height: 250,
+                // card height
+                child: PageView(
+                  controller: PageController(viewportFraction: 0.7),
+                  onPageChanged: (int index) => setState(() => _index = index),
+                  children: <Widget>[
+                    BoatCardCreator(
+                      imagem: 'assets/b1.jpg',
+                      pessoas: '6',
+                      nomeBarco: 'SeaOne',
+                    ),
+                    BoatCardCreator(
+                      imagem: 'assets/r2.JPG',
+                      pessoas: '4',
+                      nomeBarco: 'SeaTwo',
+                    ),
+                  ],
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+//  Noticias
+          Padding(
+            padding: const EdgeInsets.only(top: 30, left: 10),
+            child: Text(
+              'What\'s happening! ',
+              style: kFontStyle3,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 5, bottom: 20),
+            child: Center(
+              child: SizedBox(
+                height: 250,
+                // card height
+                child: PageView(
+                  controller: PageController(viewportFraction: 0.7),
+                  onPageChanged: (int index) => setState(() => _index = index),
+                  children: <Widget>[
+                    NewsCardCreator(
+                      imagem: 'assets/b1.jpg',
+                      nomeMateria: 'Sailing in Mallorca',
+                    ),
+                    NewsCardCreator(
+                      imagem: 'assets/b1.jpg',
+                      nomeMateria: 'Best places to Visit',
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
