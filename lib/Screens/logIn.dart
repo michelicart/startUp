@@ -58,36 +58,57 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   Container(
-//                    color: kCorBranco,
-                    width: 200,
+//                    color: kCorBrancoTrans,
+                    width: 220,
+                    decoration: BoxDecoration(
+                      color: kCorBrancoTrans,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(40),
+                      ),
+                    ),
                     child: TextField(
                       style: kFontStyle3,
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
+                        border: InputBorder.none,
+                        focusedBorder: InputBorder.none,
+                        enabledBorder: InputBorder.none,
+                        errorBorder: InputBorder.none,
+                        disabledBorder: InputBorder.none,
                         contentPadding: EdgeInsets.only(top: 1, bottom: 1),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(50),
-                          ),
+                        hintText: 'Usuário',
+                        hintStyle: kFontStyle3,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 7),
+                    child: Container(
+//                    color: kCorBrancoTrans,
+                      width: 220,
+                      decoration: BoxDecoration(
+                        color: kCorBrancoTrans,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(40),
                         ),
-                        filled: true,
-                        fillColor: kCorBrancoTrans,
-                        hintText: 'User Name',
-                        hintStyle: kFontStyle3,
+                      ),
+                      child: TextField(
+                        style: kFontStyle3,
+                        textAlign: TextAlign.center,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          focusedBorder: InputBorder.none,
+                          enabledBorder: InputBorder.none,
+                          errorBorder: InputBorder.none,
+                          disabledBorder: InputBorder.none,
+                          contentPadding: EdgeInsets.only(top: 1, bottom: 1),
+                          hintText: 'Senha',
+                          hintStyle: kFontStyle3,
+                        ),
                       ),
                     ),
                   ),
-                  Container(
-                    width: 200,
-                    child: TextField(
-                      style: kFontStyle3,
-                      textAlign: TextAlign.center,
-                      decoration: InputDecoration(
-                        hintText: 'Password',
-                        hintStyle: kFontStyle3,
-                      ),
-                    ),
-                  ),
+
 //                  Login
                   Padding(
                     padding: const EdgeInsets.only(top: 8),
@@ -105,7 +126,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ],
               ),
               Container(
-                height: 120,
+                height: 150,
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 10),

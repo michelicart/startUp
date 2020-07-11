@@ -99,12 +99,12 @@ class _MemberScreenState extends State<MemberScreen> {
                   onPageChanged: (int index) => setState(() => _index = index),
                   children: <Widget>[
                     BoatCardCreator(
-                      imagem: 'assets/b1.jpg',
+                      imagem: 'assets/b2.jpg',
                       pessoas: '6',
                       nomeBarco: 'SeaOne',
                     ),
                     BoatCardCreator(
-                      imagem: 'assets/r2.JPG',
+                      imagem: 'assets/b3.jpg',
                       pessoas: '4',
                       nomeBarco: 'SeaTwo',
                     ),
@@ -125,19 +125,15 @@ class _MemberScreenState extends State<MemberScreen> {
             padding: const EdgeInsets.only(top: 5, bottom: 5),
             child: Center(
               child: SizedBox(
-                height: 150,
+                height: 75,
                 // card height
                 child: PageView(
                   controller: PageController(viewportFraction: 0.7),
                   onPageChanged: (int index) => setState(() => _index = index),
                   children: <Widget>[
-                    NewsCardCreator(
-                      imagem: 'assets/b1.jpg',
-                      nomeMateria: '06/12 - 08/12',
-                    ),
-                    NewsCardCreator(
-                      imagem: 'assets/b1.jpg',
-                      nomeMateria: '03/10 - 05/10',
+                    ReservationsCardCreator(
+                      cidade: 'Rio de Janeiro',
+                      data: '06/12 - 08/12',
                     ),
                   ],
                 ),
@@ -163,11 +159,11 @@ class _MemberScreenState extends State<MemberScreen> {
                   onPageChanged: (int index) => setState(() => _index = index),
                   children: <Widget>[
                     NewsCardCreator(
-                      imagem: 'assets/b1.jpg',
+                      imagem: 'assets/b2.jpg',
                       nomeMateria: 'Sailing in Mallorca',
                     ),
                     NewsCardCreator(
-                      imagem: 'assets/b1.jpg',
+                      imagem: 'assets/b3.jpg',
                       nomeMateria: 'Best places to Visit',
                     ),
                   ],
