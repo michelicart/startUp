@@ -139,12 +139,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       },
                       child: Text(
                         'Become a Member',
-                        style: kFontStyleTiny,
+                        style: kFontStyleRegularWhite,
                       ),
                     ),
                     Text(
                       'Forgot Password',
-                      style: kFontStyleTiny,
+                      style: kFontStyleRegularWhite,
                     ),
                   ],
                 ),

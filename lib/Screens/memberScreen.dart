@@ -91,24 +91,36 @@ class _MemberScreenState extends State<MemberScreen> {
               top: 5,
             ),
             child: Center(
-              child: SizedBox(
-                height: 250,
-                // card height
-                child: PageView(
-                  controller: PageController(viewportFraction: 0.7),
-                  onPageChanged: (int index) => setState(() => _index = index),
-                  children: <Widget>[
-                    BoatCardCreator(
-                      imagem: 'assets/b2.jpg',
-                      pessoas: '6',
-                      nomeBarco: 'SeaOne',
-                    ),
-                    BoatCardCreator(
-                      imagem: 'assets/b3.jpg',
-                      pessoas: '4',
-                      nomeBarco: 'SeaTwo',
-                    ),
-                  ],
+              child: Hero(
+                tag: 'card',
+                child: SizedBox(
+                  height: 250,
+                  // card height
+                  child: PageView(
+                    controller: PageController(viewportFraction: 0.9),
+                    onPageChanged: (int index) =>
+                        setState(() => _index = index),
+                    children: <Widget>[
+                      GestureDetector(
+                        onTap: () =>
+                            Navigator.pushNamed(context, '/barcoSelecionado'),
+                        child: BoatCardCreator(
+                          imagem: 'assets/boat1.jpg',
+                          pessoas: '6',
+                          nomeBarco: 'SeaOne',
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () =>
+                            Navigator.pushNamed(context, '/barcoSelecionado'),
+                        child: BoatCardCreator(
+                          imagem: 'assets/boat2.jpg',
+                          pessoas: '4',
+                          nomeBarco: 'SeaTwo',
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -128,7 +140,7 @@ class _MemberScreenState extends State<MemberScreen> {
                 height: 75,
                 // card height
                 child: PageView(
-                  controller: PageController(viewportFraction: 0.7),
+                  controller: PageController(viewportFraction: 0.9),
                   onPageChanged: (int index) => setState(() => _index = index),
                   children: <Widget>[
                     ReservationsCardCreator(
@@ -152,18 +164,20 @@ class _MemberScreenState extends State<MemberScreen> {
             padding: const EdgeInsets.only(top: 5, bottom: 20),
             child: Center(
               child: SizedBox(
-                height: 150,
+                height: 100,
                 // card height
                 child: PageView(
-                  controller: PageController(viewportFraction: 0.7),
+                  controller: PageController(viewportFraction: 0.9),
                   onPageChanged: (int index) => setState(() => _index = index),
                   children: <Widget>[
                     NewsCardCreator(
-                      imagem: 'assets/b2.jpg',
-                      nomeMateria: 'Sailing in Mallorca',
+                      textoNoticia:
+                          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy',
+                      nomeMateria: 'Novo Barco em SF',
                     ),
                     NewsCardCreator(
-                      imagem: 'assets/b3.jpg',
+                      textoNoticia:
+                          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy',
                       nomeMateria: 'Best places to Visit',
                     ),
                   ],

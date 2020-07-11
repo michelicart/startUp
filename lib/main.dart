@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:startup/Screens/barcoSelected.dart';
 import 'package:startup/Screens/logIn.dart';
 import 'package:startup/Screens/memberScreen.dart';
 import 'package:startup/Screens/saibamais.dart';
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         '/memberScreen': (BuildContext context) => MemberScreen(),
 //        '/barcoInfo': (BuildContext context) => BarcoInfo(),
         '/saibaMais': (BuildContext context) => SaibaMais(),
+        '/barcoSelecionado': (BuildContext context) => BarcoSelecionado(),
       },
     );
   }

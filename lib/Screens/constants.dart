@@ -7,14 +7,25 @@ final kFontStyleB = GoogleFonts.montserrat(
     fontWeight: FontWeight.w400, fontSize: 15, color: kCorPreto);
 final kFontStyleTitulo = GoogleFonts.montserrat(
     fontWeight: FontWeight.w200, fontSize: 80, color: kCorLaranja);
-final kFontStyleTiny = GoogleFonts.montserrat(
+
+final kFontStyleTinyWhite = GoogleFonts.montserrat(
+    fontWeight: FontWeight.w200, fontSize: 10, color: kCorBranco);
+final kFontStyleTinyBlack = GoogleFonts.montserrat(
+    fontWeight: FontWeight.w200, fontSize: 10, color: kCorPreto);
+final kFontStyleTinyOrange = GoogleFonts.montserrat(
+    fontWeight: FontWeight.w300, fontSize: 10, color: kCorLaranja);
+final kFontStyleTinyGreen = GoogleFonts.montserrat(
+    fontWeight: FontWeight.w300, fontSize: 10, color: kCorVerde);
+
+final kFontStyleRegularWhite = GoogleFonts.montserrat(
     fontWeight: FontWeight.w200, fontSize: 12, color: kCorBranco);
-final kFontStyleTinyB = GoogleFonts.montserrat(
+final kFontStyleRegularBlack = GoogleFonts.montserrat(
     fontWeight: FontWeight.w200, fontSize: 12, color: kCorPreto);
-final kFontStyleSemiTinyOrange = GoogleFonts.montserrat(
+final kFontStyleSemiRegularOrange = GoogleFonts.montserrat(
     fontWeight: FontWeight.w300, fontSize: 14, color: kCorLaranja);
 final kFontStyleSemiRegularGreen = GoogleFonts.montserrat(
     fontWeight: FontWeight.w300, fontSize: 14, color: kCorVerde);
+
 final kFontStyleCidade = GoogleFonts.montserrat(
     fontWeight: FontWeight.w200, fontSize: 40, color: Colors.white);
 
@@ -63,7 +74,7 @@ class BoatCardCreator extends StatelessWidget {
               children: <Widget>[
                 Text(
                   nomeBarco,
-                  style: kFontStyleSemiTinyOrange,
+                  style: kFontStyleSemiRegularOrange,
                 ),
                 Row(
                   children: <Widget>[
@@ -76,47 +87,6 @@ class BoatCardCreator extends StatelessWidget {
                       color: kCorVerde,
                     ),
                   ],
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class NewsCardCreator extends StatelessWidget {
-  const NewsCardCreator({@required this.imagem, @required this.nomeMateria});
-
-  final String imagem;
-  final String nomeMateria;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 3, left: 3, bottom: 10),
-      child: Card(
-        semanticContainer: true,
-        clipBehavior: Clip.antiAliasWithSaveLayer,
-        elevation: 6,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        child: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(imagem),
-              fit: BoxFit.fitWidth,
-            ),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 4),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  nomeMateria,
-                  style: kFontStyleSemiTinyOrange,
                 ),
               ],
             ),
@@ -149,11 +119,22 @@ class ReservationsCardCreator extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                Icon(
-                  Icons.directions_boat,
-                  color: kCorVerde,
+                Expanded(
+                  flex: 1,
+                  child: Icon(
+                    Icons.directions_boat,
+                    color: kCorVerde,
+                  ),
                 ),
                 Expanded(
+                  flex: 1,
+                  child: Icon(
+                    Icons.more_vert,
+                    color: kCorVerde,
+                  ),
+                ),
+                Expanded(
+                  flex: 3,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -161,16 +142,117 @@ class ReservationsCardCreator extends StatelessWidget {
 //    Data
                       Text(
                         data,
-                        style: kFontStyleTinyB,
+                        style: kFontStyleRegularBlack,
                       ),
 //    Cidade
                       Text(
                         cidade,
-                        style: kFontStyleSemiTinyOrange,
+                        style: kFontStyleSemiRegularOrange,
                       ),
                     ],
                   ),
                 ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class NewsCardCreator extends StatelessWidget {
+  const NewsCardCreator(
+      {@required this.textoNoticia, @required this.nomeMateria});
+
+  final String textoNoticia;
+  final String nomeMateria;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 3, left: 3, bottom: 10),
+      child: Card(
+        semanticContainer: true,
+        clipBehavior: Clip.antiAliasWithSaveLayer,
+        elevation: 6,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        child: Container(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 4),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(top: 5),
+                  child: Text(
+                    nomeMateria,
+                    style: kFontStyleSemiRegularOrange,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 5),
+                  child: Text(
+                    textoNoticia,
+                    style: kFontStyleTinyBlack,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class GalleryCardCreator extends StatelessWidget {
+  const GalleryCardCreator(
+      {@required this.imagem, this.pessoas, this.nomeBarco});
+
+  final String imagem;
+  final String pessoas;
+  final String nomeBarco;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 0, left: 0, bottom: 0),
+      child: Card(
+        semanticContainer: true,
+        clipBehavior: Clip.antiAliasWithSaveLayer,
+        elevation: 6,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
+        child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(imagem),
+              fit: BoxFit.fitWidth,
+            ),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+//                Text(
+//                  nomeBarco,
+//                  style: kFontStyleSemiRegularOrange,
+//                ),
+//                Row(
+//                  children: <Widget>[
+//                    Text(
+//                      '$pessoas x',
+//                      style: kFontStyleSemiRegularGreen,
+//                    ),
+//                    Icon(
+//                      Icons.person,
+//                      color: kCorVerde,
+//                    ),
+//                  ],
+//                ),
               ],
             ),
           ),
