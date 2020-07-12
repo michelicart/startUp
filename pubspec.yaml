@@ -21,6 +21,9 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  rflutter_alert: ^1.0.3
+  carousel_slider: ^2.2.1
+  date_picker_timeline: ^1.2.0
   google_fonts: ^1.1.0
   flutter:
     sdk: flutter
@@ -48,7 +51,8 @@ flutter:
 
   assets:
     - assets/
-  #   - images/a_dot_ham.jpeg
+    - assets/images/
+    - assets/images/Cat1/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

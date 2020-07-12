@@ -1,11 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:date_picker_timeline/date_picker_timeline.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
-final kFontStyle3 = GoogleFonts.montserrat(
+//Date picker
+
+final kFontDatePickerMenor = GoogleFonts.montserrat(
+    fontWeight: FontWeight.w400, fontSize: 11, color: kCorBranco);
+final kFontDatePickerMaior = GoogleFonts.montserrat(
+    fontWeight: FontWeight.w400, fontSize: 24, color: kCorBranco);
+
+final kFontStyleBranco = GoogleFonts.montserrat(
     fontWeight: FontWeight.w400, fontSize: 17, color: kCorBranco);
 final kFontStyleB = GoogleFonts.montserrat(
     fontWeight: FontWeight.w400, fontSize: 15, color: kCorPreto);
-final kFontStyleTitulo = GoogleFonts.montserrat(
+
+final kFontStyleSubTituloLaranja = GoogleFonts.montserrat(
+    fontWeight: FontWeight.w200, fontSize: 30, color: kCorLaranja);
+
+final kFontStyleTituloLaranja = GoogleFonts.montserrat(
     fontWeight: FontWeight.w200, fontSize: 80, color: kCorLaranja);
 
 final kFontStyleTinyWhite = GoogleFonts.montserrat(
@@ -15,10 +28,13 @@ final kFontStyleTinyBlack = GoogleFonts.montserrat(
 final kFontStyleTinyOrange = GoogleFonts.montserrat(
     fontWeight: FontWeight.w300, fontSize: 10, color: kCorLaranja);
 final kFontStyleTinyGreen = GoogleFonts.montserrat(
-    fontWeight: FontWeight.w300, fontSize: 10, color: kCorVerde);
+  fontWeight: FontWeight.w300,
+  fontSize: 10,
+  color: kCorVerde,
+);
 
 final kFontStyleRegularWhite = GoogleFonts.montserrat(
-    fontWeight: FontWeight.w200, fontSize: 12, color: kCorBranco);
+    fontWeight: FontWeight.w200, fontSize: 14, color: kCorBranco);
 final kFontStyleRegularBlack = GoogleFonts.montserrat(
     fontWeight: FontWeight.w200, fontSize: 12, color: kCorPreto);
 final kFontStyleSemiRegularOrange = GoogleFonts.montserrat(
@@ -32,8 +48,20 @@ final kFontStyleCidade = GoogleFonts.montserrat(
 final kCorBranco = Color(0xFFF6F6F3);
 final kCorBrancoTrans = Color.fromRGBO(246, 246, 243, 0.3);
 final kCorPreto = Color(0xFF393E41);
+final kCorPretoTrans = Color.fromRGBO(22, 24, 25, 0.7);
+
 final kCorLaranja = Color(0xFFF3874F);
+final kCorLaranjaTrans = Color.fromRGBO(95, 53, 31, 0.3);
 final kCorVerde = Color(0xFF1CA39D);
+
+final List<String> imgList = [
+  'assets/boat1.jpg',
+  'assets/images/Cat1/lagoon.jpg',
+  'assets/images/Cat1/lagoon1.jpg',
+  'assets/images/Cat1/lagoon2.jpg',
+  'assets/images/Cat1/lagoon3.jpg',
+  'assets/images/Cat1/lagoon4.jpg',
+];
 
 const List<String> countriesList = [
   'Change city',
@@ -254,6 +282,37 @@ class GalleryCardCreator extends StatelessWidget {
 //                  ],
 //                ),
               ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class ConfirmarReservaCardCreator extends StatelessWidget {
+  const ConfirmarReservaCardCreator({@required this.confirmar, this.data});
+
+  final String confirmar;
+  final String data;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 3, left: 3, bottom: 10),
+      child: Card(
+        semanticContainer: true,
+        clipBehavior: Clip.antiAliasWithSaveLayer,
+        elevation: 6,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        child: Container(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 4),
+            child: Center(
+              child: Text(
+                confirmar,
+                style: kFontStyleSubTituloLaranja,
+              ),
             ),
           ),
         ),

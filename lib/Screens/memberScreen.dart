@@ -16,7 +16,7 @@ class _MemberScreenState extends State<MemberScreen> {
   DropdownButton<String> getDropDownButton() {
     return DropdownButton<String>(
       value: cidade,
-      style: kFontStyle3,
+      style: kFontStyleBranco,
       items: getCities(),
       onChanged: (value) async {
         setState(() {
@@ -83,7 +83,7 @@ class _MemberScreenState extends State<MemberScreen> {
             padding: const EdgeInsets.only(top: 30, left: 10),
             child: Text(
               'Avaliable Boats',
-              style: kFontStyle3,
+              style: kFontStyleBranco,
             ),
           ),
           Padding(
@@ -130,7 +130,7 @@ class _MemberScreenState extends State<MemberScreen> {
             padding: const EdgeInsets.only(top: 30, left: 10),
             child: Text(
               'Próximo Destino',
-              style: kFontStyle3,
+              style: kFontStyleBranco,
             ),
           ),
           Padding(
@@ -157,7 +157,7 @@ class _MemberScreenState extends State<MemberScreen> {
             padding: const EdgeInsets.only(top: 15, left: 10),
             child: Text(
               'What\'s happening! ',
-              style: kFontStyle3,
+              style: kFontStyleBranco,
             ),
           ),
           Padding(

@@ -46,7 +46,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     padding: const EdgeInsets.only(top: 1),
                     child: Text(
                       'Kaiē',
-                      style: kFontStyleTitulo,
+                      style: kFontStyleTituloLaranja,
                     ),
                   ),
                   Padding(
@@ -54,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Text(
                       'em qualquer lugar permita-se navegar',
 //                      'your sea tribe',
-                      style: kFontStyle3,
+                      style: kFontStyleBranco,
                     ),
                   ),
                   Container(
@@ -67,7 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     child: TextField(
-                      style: kFontStyle3,
+                      style: kFontStyleBranco,
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
                         border: InputBorder.none,
@@ -77,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         disabledBorder: InputBorder.none,
                         contentPadding: EdgeInsets.only(top: 1, bottom: 1),
                         hintText: 'Usuário',
-                        hintStyle: kFontStyle3,
+                        hintStyle: kFontStyleBranco,
                       ),
                     ),
                   ),
@@ -93,7 +93,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       child: TextField(
-                        style: kFontStyle3,
+                        style: kFontStyleBranco,
                         textAlign: TextAlign.center,
                         decoration: InputDecoration(
                           border: InputBorder.none,
@@ -103,7 +103,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           disabledBorder: InputBorder.none,
                           contentPadding: EdgeInsets.only(top: 1, bottom: 1),
                           hintText: 'Senha',
-                          hintStyle: kFontStyle3,
+                          hintStyle: kFontStyleBranco,
                         ),
                       ),
                     ),
