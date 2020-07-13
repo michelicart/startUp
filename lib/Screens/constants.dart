@@ -320,3 +320,44 @@ class ConfirmarReservaCardCreator extends StatelessWidget {
     );
   }
 }
+
+class ControllerCardCreator extends StatelessWidget {
+  const ControllerCardCreator({@required this.nomeArea, @required this.imagem});
+
+  final String nomeArea;
+  final String imagem;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 3, left: 3, bottom: 10),
+      child: Card(
+        semanticContainer: true,
+        clipBehavior: Clip.antiAliasWithSaveLayer,
+        elevation: 6,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(imagem),
+              fit: BoxFit.fitWidth,
+            ),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 4),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  nomeArea,
+                  style: kFontStyleSemiRegularOrange,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

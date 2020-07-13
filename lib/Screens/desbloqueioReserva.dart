@@ -39,9 +39,14 @@ class _DesbloqueioReservaState extends State<DesbloqueioReserva> {
                             qrCodeCallback: (code) {
                               setState(() {
                                 qr = code;
-                                qr != null
-                                    ? Navigator.pushNamed(context, '/controle')
-                                    : qr;
+//                                qr != null
+//                                    ? Navigator.pushNamed(context, '/controle')
+//                                    : qr;
+                                if (qr != null) {
+                                  Navigator.pushNamed(context, '/controle');
+                                  camState = false;
+                                  print(qr);
+                                }
                               });
                             },
                           ),
@@ -70,15 +75,16 @@ class _DesbloqueioReservaState extends State<DesbloqueioReserva> {
                     ),
                   ),
                   Container(
+                    padding: EdgeInsets.only(top: 8),
                     width: MediaQuery.of(context).size.width * .9,
                     child: Stack(
                       children: <Widget>[
                         Container(
                           width: 200,
-                          child: Image.asset('assets/boat1.png'),
+                          child: Image.asset('assets/Artboard 1.png'),
                         ),
                         Positioned(
-                          right: 20,
+                          right: 10,
                           child: Container(
                               width: 150,
                               child: Text(
