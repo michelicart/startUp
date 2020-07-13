@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'constants.dart';
 
@@ -133,21 +132,27 @@ class _MemberScreenState extends State<MemberScreen> {
               style: kFontStyleBranco,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 5, bottom: 5),
-            child: Center(
-              child: SizedBox(
-                height: 75,
-                // card height
-                child: PageView(
-                  controller: PageController(viewportFraction: 0.9),
-                  onPageChanged: (int index) => setState(() => _index = index),
-                  children: <Widget>[
-                    ReservationsCardCreator(
-                      cidade: 'Rio de Janeiro',
-                      data: '06/12 - 08/12',
-                    ),
-                  ],
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, '/desbloqueioReserva');
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(top: 5, bottom: 5),
+              child: Center(
+                child: SizedBox(
+                  height: 75,
+                  // card height
+                  child: PageView(
+                    controller: PageController(viewportFraction: 0.9),
+                    onPageChanged: (int index) =>
+                        setState(() => _index = index),
+                    children: <Widget>[
+                      ReservationsCardCreator(
+                        cidade: 'Rio de Janeiro',
+                        data: '06/12 - 08/12',
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

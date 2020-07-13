@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "443418198159",
+    "firebase_url": "https://kaie-78edd.firebaseio.com",
+    "project_id": "kaie-78edd",
+    "storage_bucket": "kaie-78edd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:443418198159:android:39bf7c71d861ce5b50f0fa",
+        "android_client_info": {
+          "package_name": "com.michelicart.startup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "443418198159-7t6ictlm6q9782ka31l7prul4aamg990.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByBVBX4R-8fGsJbztkujYr6sTmX14gTOE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "443418198159-7t6ictlm6q9782ka31l7prul4aamg990.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

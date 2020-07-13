@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:startup/Screens/barcoSelected.dart';
+import 'package:startup/Screens/controleBarco.dart';
 import 'package:startup/Screens/logIn.dart';
 import 'package:startup/Screens/memberScreen.dart';
-import 'package:startup/Screens/saibamais.dart';
+import 'package:startup/Screens/desbloqueioReserva.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,8 +23,9 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         '/memberScreen': (BuildContext context) => MemberScreen(),
 //        '/barcoInfo': (BuildContext context) => BarcoInfo(),
-        '/saibaMais': (BuildContext context) => SaibaMais(),
+        '/desbloqueioReserva': (BuildContext context) => DesbloqueioReserva(),
         '/barcoSelecionado': (BuildContext context) => BarcoSelecionado(),
+        '/controle': (BuildContext context) => ControleTotal(),
       },
     );
   }

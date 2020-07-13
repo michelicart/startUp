@@ -135,7 +135,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: <Widget>[
                     GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(context, '/saibaMais');
+                        Navigator.pushNamed(context, '/desbloqueioReserva');
                       },
                       child: Text(
                         'Become a Member',
