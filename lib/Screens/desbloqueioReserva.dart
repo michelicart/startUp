@@ -88,7 +88,7 @@ class _DesbloqueioReservaState extends State<DesbloqueioReserva> {
                           child: Container(
                               width: 150,
                               child: Text(
-                                'você pode encontrar o QR code aqui',
+                                'Você pode encontrar o QR code aqui',
                                 style: kFontStyleSemiRegularGreen,
                               )),
                         ),
@@ -98,9 +98,14 @@ class _DesbloqueioReservaState extends State<DesbloqueioReserva> {
                 ],
               ),
             ),
-            Text(
-              "QRCODE: $qr",
-              style: kFontStyleRegularBlack,
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/controle');
+              },
+              child: Text(
+                "QRCODE: $qr",
+                style: kFontStyleRegularWhite,
+              ),
             ),
           ],
         ),

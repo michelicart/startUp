@@ -6,20 +6,31 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 //Date picker
 
 final kFontDatePickerMenor = GoogleFonts.montserrat(
-    fontWeight: FontWeight.w400, fontSize: 11, color: kCorBranco);
+    fontWeight: FontWeight.w400, fontSize: 11, color: kCorVerde);
 final kFontDatePickerMaior = GoogleFonts.montserrat(
-    fontWeight: FontWeight.w400, fontSize: 24, color: kCorBranco);
+    fontWeight: FontWeight.w400, fontSize: 24, color: kCorVerde);
 
 final kFontStyleBranco = GoogleFonts.montserrat(
     fontWeight: FontWeight.w400, fontSize: 17, color: kCorBranco);
 final kFontStyleB = GoogleFonts.montserrat(
     fontWeight: FontWeight.w400, fontSize: 15, color: kCorPreto);
+final kFontStyleLaranja = GoogleFonts.montserrat(
+    fontWeight: FontWeight.w400, fontSize: 15, color: kCorLaranja);
+final kFontStyleVerde = GoogleFonts.montserrat(
+    fontWeight: FontWeight.w400, fontSize: 15, color: kCorVerde);
 
 final kFontStyleSubTituloLaranja = GoogleFonts.montserrat(
     fontWeight: FontWeight.w200, fontSize: 30, color: kCorLaranja);
+final kFontStyleSubTituloBranco = GoogleFonts.montserrat(
+    fontWeight: FontWeight.w200, fontSize: 30, color: kCorBranco);
+
+final kFontStyleSub2TituloBranco = GoogleFonts.montserrat(
+    fontWeight: FontWeight.w200, fontSize: 20, color: kCorBranco);
 
 final kFontStyleTituloLaranja = GoogleFonts.montserrat(
     fontWeight: FontWeight.w200, fontSize: 80, color: kCorLaranja);
+final kFontStyleTituloBranco = GoogleFonts.montserrat(
+    fontWeight: FontWeight.w200, fontSize: 80, color: kCorBranco);
 
 final kFontStyleTinyWhite = GoogleFonts.montserrat(
     fontWeight: FontWeight.w200, fontSize: 10, color: kCorBranco);
@@ -37,6 +48,8 @@ final kFontStyleRegularWhite = GoogleFonts.montserrat(
     fontWeight: FontWeight.w200, fontSize: 14, color: kCorBranco);
 final kFontStyleRegularBlack = GoogleFonts.montserrat(
     fontWeight: FontWeight.w200, fontSize: 12, color: kCorPreto);
+final kFontStyleRegularGreen = GoogleFonts.montserrat(
+    fontWeight: FontWeight.w200, fontSize: 14, color: kCorVerde);
 final kFontStyleSemiRegularOrange = GoogleFonts.montserrat(
     fontWeight: FontWeight.w300, fontSize: 14, color: kCorLaranja);
 final kFontStyleSemiRegularGreen = GoogleFonts.montserrat(
@@ -45,7 +58,13 @@ final kFontStyleSemiRegularGreen = GoogleFonts.montserrat(
 final kFontStyleCidade = GoogleFonts.montserrat(
     fontWeight: FontWeight.w200, fontSize: 40, color: Colors.white);
 
-final kCorBranco = Color(0xFFF6F6F3);
+final kFontStyleNumerosDash = GoogleFonts.montserrat(
+    fontWeight: FontWeight.w200, fontSize: 30, color: kCorBranco);
+final kFontStyleIdentificacaoDash = GoogleFonts.montserrat(
+    fontWeight: FontWeight.w200, fontSize: 15, color: kCorBranco);
+
+final kCorBrancoObjetos = Color(0xFfF4F4F2);
+final kCorBranco = Color(0xFFFFFFFF);
 final kCorBrancoTrans = Color.fromRGBO(246, 246, 243, 0.3);
 final kCorPreto = Color(0xFF393E41);
 final kCorPretoTrans = Color.fromRGBO(22, 24, 25, 0.7);
@@ -55,19 +74,22 @@ final kCorLaranjaTrans = Color.fromRGBO(95, 53, 31, 0.3);
 final kCorVerde = Color(0xFF1CA39D);
 
 final List<String> imgList = [
-  'assets/boat1.jpg',
+  'assets/images/Cat1/lagoon3.jpg',
   'assets/images/Cat1/lagoon.jpg',
   'assets/images/Cat1/lagoon1.jpg',
   'assets/images/Cat1/lagoon2.jpg',
-  'assets/images/Cat1/lagoon3.jpg',
   'assets/images/Cat1/lagoon4.jpg',
 ];
 
 const List<String> countriesList = [
-  'Change city',
-  'Rio de Janeiro',
+  'Outras cidades',
+  'Barcelona',
+  'Ilha Grande',
+  'Marseille',
   'Miami',
-  'Palma de Mallorca'
+  'Mikonos',
+  'Rio de Janeiro',
+  'San Francisco',
 ];
 
 class BoatCardCreator extends StatelessWidget {
@@ -83,6 +105,7 @@ class BoatCardCreator extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(right: 3, left: 3, bottom: 10),
       child: Card(
+        color: kCorBranco,
         semanticContainer: true,
         clipBehavior: Clip.antiAliasWithSaveLayer,
         elevation: 6,
@@ -136,6 +159,7 @@ class ReservationsCardCreator extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(right: 3, left: 3, bottom: 10),
       child: Card(
+        color: kCorBranco,
         semanticContainer: true,
         clipBehavior: Clip.antiAliasWithSaveLayer,
         elevation: 6,
@@ -170,7 +194,7 @@ class ReservationsCardCreator extends StatelessWidget {
 //    Data
                       Text(
                         data,
-                        style: kFontStyleRegularBlack,
+                        style: kFontStyleRegularGreen,
                       ),
 //    Cidade
                       Text(
@@ -201,6 +225,7 @@ class NewsCardCreator extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(right: 3, left: 3, bottom: 10),
       child: Card(
+        color: kCorBranco,
         semanticContainer: true,
         clipBehavior: Clip.antiAliasWithSaveLayer,
         elevation: 6,

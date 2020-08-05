@@ -9,13 +9,14 @@ class MemberScreen extends StatefulWidget {
 
 class _MemberScreenState extends State<MemberScreen> {
   String cidadeEscolhida = 'Rio de Janeiro';
-  String cidade = 'Change city';
+  String cidade = 'Outras cidades';
   int _index = 0;
 
   DropdownButton<String> getDropDownButton() {
     return DropdownButton<String>(
       value: cidade,
       style: kFontStyleBranco,
+      dropdownColor: kCorLaranja,
       items: getCities(),
       onChanged: (value) async {
         setState(() {
@@ -57,11 +58,12 @@ class _MemberScreenState extends State<MemberScreen> {
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 0, sigmaY: 0),
               child: Padding(
-                padding: const EdgeInsets.only(left: 10),
+                padding: const EdgeInsets.only(left: 10, top: 10),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
+//             Cidade escolhida
                     Padding(
                       padding: const EdgeInsets.only(top: 30),
                       child: Text(
@@ -69,6 +71,7 @@ class _MemberScreenState extends State<MemberScreen> {
                         style: kFontStyleCidade,
                       ),
                     ),
+//            Escolher cidades
                     Container(
                       child: getDropDownButton(),
                     ),
@@ -81,7 +84,7 @@ class _MemberScreenState extends State<MemberScreen> {
           Padding(
             padding: const EdgeInsets.only(top: 30, left: 10),
             child: Text(
-              'Avaliable Boats',
+              'Barcos Disponíveis',
               style: kFontStyleBranco,
             ),
           ),
@@ -104,7 +107,7 @@ class _MemberScreenState extends State<MemberScreen> {
                         onTap: () =>
                             Navigator.pushNamed(context, '/barcoSelecionado'),
                         child: BoatCardCreator(
-                          imagem: 'assets/boat1.jpg',
+                          imagem: 'assets/boat2.jpg',
                           pessoas: '6',
                           nomeBarco: 'SeaOne',
                         ),
@@ -113,7 +116,7 @@ class _MemberScreenState extends State<MemberScreen> {
                         onTap: () =>
                             Navigator.pushNamed(context, '/barcoSelecionado'),
                         child: BoatCardCreator(
-                          imagem: 'assets/boat2.jpg',
+                          imagem: 'assets/boat1.jpg',
                           pessoas: '4',
                           nomeBarco: 'SeaTwo',
                         ),
@@ -161,7 +164,7 @@ class _MemberScreenState extends State<MemberScreen> {
           Padding(
             padding: const EdgeInsets.only(top: 15, left: 10),
             child: Text(
-              'What\'s happening! ',
+              'Novidades',
               style: kFontStyleBranco,
             ),
           ),

@@ -50,12 +50,12 @@ class _BarcoSelecionadoState extends State<BarcoSelecionado> {
       ),
       type: AlertType.success,
       title: "Reserva confirmada!",
-      desc: "Nos vemos a bordo do SeaOne no dia xx",
+      desc: "Nos vemos a bordo do SeaOne.",
       buttons: [
         DialogButton(
           color: kCorLaranja,
           child: Text(
-            "COOL",
+            "SHOW!",
             style: kFontStyleBranco,
           ),
           onPressed: () => Navigator.pushNamed(context, '/memberScreen'),
@@ -117,131 +117,97 @@ class _BarcoSelecionadoState extends State<BarcoSelecionado> {
               ),
             ],
           ),
-//    Nome do Barco
-          Padding(
-            padding: const EdgeInsets.only(top: 10),
-            child: Center(
-              child: Text(
-                'SeaOne 41',
-                style: kFontStyleSubTituloLaranja,
-              ),
-            ),
-          ),
-//    Sobre o barco
-          Center(
-            child: Container(
-//              decoration: BoxDecoration(
-//                color: kCorBrancoTrans,
-//                borderRadius: BorderRadius.all(
-//                  Radius.circular(40),
-//                ),
-//              ),
-              padding: EdgeInsets.only(top: 5, right: 3, left: 3),
-              width: MediaQuery.of(context).size.width * 0.9,
-              child: Text(
-                'O SeaOne é o barco prefeito para sua familia e amigos. Possui 3 cabines independes que acomodam 6 pessoas confortavelmente. No interior da embarcacão encontra-se obras artisticas do artista Blubla e seu conceito moderno clean',
-                style: kFontStyleRegularWhite,
-              ),
-            ),
-          ),
-//    Datas de Reserva
-          Container(
-            padding: EdgeInsets.only(top: 30),
-            child: Row(
+          Expanded(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                    width: MediaQuery.of(context).size.width * 0.45,
-                    child: Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 5),
-                          child: Text(
-                            'Retirada',
-                            style: kFontStyleRegularWhite,
-                          ),
-                        ),
-                        DatePicker(
-                          DateTime.now().add(Duration(days: 0)),
-                          width: 50,
-                          height: 80,
-                          controller: _controller,
-                          initialSelectedDate: DateTime.now(),
-                          selectionColor: kCorBranco,
-                          selectedTextColor: kCorVerde,
-                          dayTextStyle: kFontDatePickerMenor,
-                          dateTextStyle: kFontDatePickerMaior,
-                          monthTextStyle: kFontDatePickerMenor,
-                          onDateChange: (date) {
-                            // New date selected
-                            setState(() {
-                              _selectedValue = date;
-                            });
-                          },
-                        ),
-                      ],
-                    )),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.03,
-                ),
-                Container(
-                    width: MediaQuery.of(context).size.width * 0.45,
-                    child: Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 5),
-                          child: Text(
-                            'Devolução',
-                            style: kFontStyleRegularWhite,
-                          ),
-                        ),
-                        DatePicker(
-                          DateTime.now().add(Duration(days: 0)),
-                          width: 50,
-                          height: 80,
-                          controller: _controller,
-                          initialSelectedDate: DateTime.now(),
-                          selectionColor: kCorBranco,
-                          selectedTextColor: kCorVerde,
-                          dayTextStyle: kFontDatePickerMenor,
-                          dateTextStyle: kFontDatePickerMaior,
-                          monthTextStyle: kFontDatePickerMenor,
-                          onDateChange: (date) {
-                            // New date selected
-                            setState(() {
-                              _selectedValue = date;
-                            });
-                          },
-                        ),
-                      ],
-                    )),
-              ],
-            ),
-          ),
-//    Botão Confirmar Reserva
-          SizedBox(
-            height: 60,
-          ),
-          GestureDetector(
-            onTap: () => _onAlertButtonPressed(context),
-            child: Padding(
-              padding: const EdgeInsets.only(top: 5, bottom: 5),
-              child: Center(
-                child: SizedBox(
-                  height: 60,
-                  // card height
-                  child: PageView(
-                    controller: PageController(viewportFraction: 0.9),
-                    onPageChanged: (int index) =>
-                        setState(() => _index = index),
-                    children: <Widget>[
-                      ConfirmarReservaCardCreator(
-                        confirmar: 'Confirmar Reserva',
-                      ),
-                    ],
+              children: [
+                //    Nome do Barco
+                Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: Center(
+                    child: Text(
+                      'SeaOne 41',
+                      style: kFontStyleSubTituloBranco,
+                    ),
                   ),
                 ),
-              ),
+//    Sobre o barco
+                Center(
+                  child: Container(
+                    padding: EdgeInsets.only(top: 20, right: 3, left: 3),
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    child: Text(
+                      'O SeaOne é o barco prefeito para sua familia e amigos. Possui 3 cabines independes que acomodam 6 pessoas confortavelmente. No interior da embarcacão encontra-se obras artisticas do artista Blubla e seu conceito moderno clean',
+                      style: kFontStyleRegularWhite,
+                      textAlign: TextAlign.justify,
+                    ),
+                  ),
+                ),
+//    Datas de Reserva
+                Container(
+                    padding: EdgeInsets.only(top: 30),
+                    child: Column(
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 10),
+                          child: Text(
+                            'Escolha uma data:',
+                            style: kFontStyleSub2TituloBranco,
+                          ),
+                        ),
+                        Container(
+                          color: kCorBranco,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 6),
+                            child: DatePicker(
+                              DateTime.now().add(Duration(days: 0)),
+                              width: 50,
+                              height: 80,
+                              controller: _controller,
+                              initialSelectedDate: DateTime.now(),
+                              selectionColor: kCorVerde,
+                              selectedTextColor: kCorBrancoObjetos,
+                              dayTextStyle: kFontDatePickerMenor,
+                              dateTextStyle: kFontDatePickerMaior,
+                              monthTextStyle: kFontDatePickerMenor,
+                              onDateChange: (date) {
+                                // New date selected
+                                setState(() {
+                                  _selectedValue = date;
+                                });
+                              },
+                            ),
+                          ),
+                        ),
+                      ],
+                    )),
+                Padding(
+                  padding: const EdgeInsets.only(top: 30, bottom: 20),
+                  child: Center(
+                    child: SizedBox(
+                      height: 60,
+                      // card height
+                      child: SizedBox(
+                        width: 220,
+                        child: FlatButton(
+                          shape: RoundedRectangleBorder(
+                            side: BorderSide(color: kCorBranco),
+                            borderRadius: BorderRadius.circular(
+                              (40),
+                            ),
+                          ),
+                          color: Colors.transparent,
+                          onPressed: () => _onAlertButtonPressed(context),
+                          child: Text(
+                            'Confirmar Reserva',
+                            style: kFontStyleBranco,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ],
