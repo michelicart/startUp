@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:startup/Screens/memberScreen.dart';
 import 'constants.dart';
 import 'package:date_picker_timeline/date_picker_timeline.dart';
 import 'package:carousel_slider/carousel_options.dart';
@@ -55,10 +56,19 @@ class _BarcoSelecionadoState extends State<BarcoSelecionado> {
         DialogButton(
           color: kCorLaranja,
           child: Text(
-            "SHOW!",
+            "OK!",
             style: kFontStyleBranco,
           ),
-          onPressed: () => Navigator.pushNamed(context, '/memberScreen'),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => MemberScreen(
+                  reserva: ComReserva(),
+                ),
+              ),
+            );
+          },
           width: 120,
         )
       ],

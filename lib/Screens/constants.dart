@@ -59,9 +59,13 @@ final kFontStyleCidade = GoogleFonts.montserrat(
     fontWeight: FontWeight.w200, fontSize: 40, color: Colors.white);
 
 final kFontStyleNumerosDash = GoogleFonts.montserrat(
-    fontWeight: FontWeight.w200, fontSize: 30, color: kCorBranco);
+    fontWeight: FontWeight.w200, fontSize: 30, color: kCorVerde);
 final kFontStyleIdentificacaoDash = GoogleFonts.montserrat(
-    fontWeight: FontWeight.w200, fontSize: 15, color: kCorBranco);
+    fontWeight: FontWeight.w200, fontSize: 15, color: kCorVerde);
+final kFontStyleSelecionaControle = GoogleFonts.montserrat(
+    fontWeight: FontWeight.w400, fontSize: 15, color: kCorBranco);
+final kFontStyleNumeroMusica = GoogleFonts.montserrat(
+    fontWeight: FontWeight.w200, fontSize: 13, color: kCorBranco);
 
 final kCorBrancoObjetos = Color(0xFfF4F4F2);
 final kCorBranco = Color(0xFFFFFFFF);
@@ -72,6 +76,9 @@ final kCorPretoTrans = Color.fromRGBO(22, 24, 25, 0.7);
 final kCorLaranja = Color(0xFFF3874F);
 final kCorLaranjaTrans = Color.fromRGBO(95, 53, 31, 0.3);
 final kCorVerde = Color(0xFF1CA39D);
+final kCorVerdeEscuro = Color(0xFF188c87);
+
+final kCorCinza = Color(0xFFa7a7a7);
 
 final List<String> imgList = [
   'assets/images/Cat1/lagoon3.jpg',
@@ -196,6 +203,71 @@ class ReservationsCardCreator extends StatelessWidget {
                         data,
                         style: kFontStyleRegularGreen,
                       ),
+//    Cidade
+                      Text(
+                        cidade,
+                        style: kFontStyleSemiRegularOrange,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class ReservationsCardCreator2 extends StatelessWidget {
+  const ReservationsCardCreator2({@required this.cidade, @required this.data});
+
+  final String cidade;
+  final String data;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 3, left: 3, bottom: 10),
+      child: Card(
+        color: kCorBranco,
+        semanticContainer: true,
+        clipBehavior: Clip.antiAliasWithSaveLayer,
+        elevation: 6,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        child: Container(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 4),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Expanded(
+                  flex: 1,
+                  child: Icon(
+                    Icons.directions_boat,
+                    color: kCorVerde,
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Icon(
+                    Icons.more_vert,
+                    color: kCorVerde,
+                  ),
+                ),
+                Expanded(
+                  flex: 3,
+                  child: Column(
+//                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+//    Data
+//                      Text(
+//                        data,
+//                        style: kFontStyleRegularGreen,
+//                      ),
 //    Cidade
                       Text(
                         cidade,
@@ -377,6 +449,78 @@ class ControllerCardCreator extends StatelessWidget {
                 Text(
                   nomeArea,
                   style: kFontStyleSemiRegularOrange,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class ComReserva extends StatefulWidget {
+  @override
+  _ComReservaState createState() => _ComReservaState();
+}
+
+class _ComReservaState extends State<ComReserva> {
+  int _index = 0;
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, '/desbloqueioReserva');
+      },
+      child: Padding(
+        padding: const EdgeInsets.only(top: 5, bottom: 5),
+        child: Center(
+          child: SizedBox(
+            height: 75,
+            // card height
+            child: PageView(
+              controller: PageController(viewportFraction: 0.9),
+              onPageChanged: (int index) => setState(() => _index = index),
+              children: <Widget>[
+                ReservationsCardCreator(
+                  cidade: 'Rio de Janeiro',
+                  data: '06/12 - 08/12',
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class SemReserva extends StatefulWidget {
+  @override
+  _SemReservaState createState() => _SemReservaState();
+}
+
+class _SemReservaState extends State<SemReserva> {
+  int _index = 0;
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, '/desbloqueioReserva');
+      },
+      child: Padding(
+        padding: const EdgeInsets.only(top: 5, bottom: 5),
+        child: Center(
+          child: SizedBox(
+            height: 75,
+            // card height
+            child: PageView(
+              controller: PageController(viewportFraction: 0.9),
+              onPageChanged: (int index) => setState(() => _index = index),
+              children: <Widget>[
+                ReservationsCardCreator2(
+                  cidade: 'Nenhuma Reserva Ativa',
+                  data: '-',
                 ),
               ],
             ),

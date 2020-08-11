@@ -111,9 +111,10 @@ class _DesbloqueioReservaState extends State<DesbloqueioReserva> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-          child: Text(
-            "press me",
-            textAlign: TextAlign.center,
+          backgroundColor: kCorBranco,
+          child: Icon(
+            Icons.videocam_off,
+            color: kCorVerde,
           ),
           onPressed: () {
             setState(() {

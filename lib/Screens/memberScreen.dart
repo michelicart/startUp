@@ -3,14 +3,21 @@ import 'package:flutter/material.dart';
 import 'constants.dart';
 
 class MemberScreen extends StatefulWidget {
+  final Widget reserva;
+  MemberScreen({this.reserva});
+
   @override
-  _MemberScreenState createState() => _MemberScreenState();
+  _MemberScreenState createState() => _MemberScreenState(reserva: reserva);
 }
 
 class _MemberScreenState extends State<MemberScreen> {
+  final Widget reserva;
+  _MemberScreenState({this.reserva});
+
   String cidadeEscolhida = 'Rio de Janeiro';
   String cidade = 'Outras cidades';
   int _index = 0;
+  AssetImage imagemcidade = AssetImage('assets/rio_vec3.jpg');
 
   DropdownButton<String> getDropDownButton() {
     return DropdownButton<String>(
@@ -21,6 +28,12 @@ class _MemberScreenState extends State<MemberScreen> {
       onChanged: (value) async {
         setState(() {
           value != 'Outro destino' ? cidadeEscolhida = value : value;
+          value == 'Rio de Janeiro'
+              ? imagemcidade = AssetImage('assets/rio_vec3.jpg')
+              : imagemcidade;
+          value == 'San Francisco'
+              ? imagemcidade = AssetImage('assets/Sanfran3.jpg')
+              : imagemcidade;
         });
       },
     );
@@ -48,7 +61,7 @@ class _MemberScreenState extends State<MemberScreen> {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/rio_vec3.jpg'),
+                image: imagemcidade,
                 fit: BoxFit.fill,
               ),
             ),
@@ -82,7 +95,7 @@ class _MemberScreenState extends State<MemberScreen> {
           ),
 //  Barcos
           Padding(
-            padding: const EdgeInsets.only(top: 30, left: 10),
+            padding: const EdgeInsets.only(top: 35, left: 10),
             child: Text(
               'Barcos Disponíveis',
               style: kFontStyleBranco,
@@ -129,70 +142,47 @@ class _MemberScreenState extends State<MemberScreen> {
           ),
 //  Reservas
           Padding(
-            padding: const EdgeInsets.only(top: 30, left: 10),
+            padding: const EdgeInsets.only(top: 35, left: 10),
             child: Text(
               'Próximo Destino',
               style: kFontStyleBranco,
             ),
           ),
-          GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(context, '/desbloqueioReserva');
-            },
-            child: Padding(
-              padding: const EdgeInsets.only(top: 5, bottom: 5),
-              child: Center(
-                child: SizedBox(
-                  height: 75,
-                  // card height
-                  child: PageView(
-                    controller: PageController(viewportFraction: 0.9),
-                    onPageChanged: (int index) =>
-                        setState(() => _index = index),
-                    children: <Widget>[
-                      ReservationsCardCreator(
-                        cidade: 'Rio de Janeiro',
-                        data: '06/12 - 08/12',
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
+          reserva,
+
 //  Noticias
-          Padding(
-            padding: const EdgeInsets.only(top: 15, left: 10),
-            child: Text(
-              'Novidades',
-              style: kFontStyleBranco,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 5, bottom: 20),
-            child: Center(
-              child: SizedBox(
-                height: 100,
-                // card height
-                child: PageView(
-                  controller: PageController(viewportFraction: 0.9),
-                  onPageChanged: (int index) => setState(() => _index = index),
-                  children: <Widget>[
-                    NewsCardCreator(
-                      textoNoticia:
-                          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy',
-                      nomeMateria: 'Novo Barco em SF',
-                    ),
-                    NewsCardCreator(
-                      textoNoticia:
-                          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy',
-                      nomeMateria: 'Best places to Visit',
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
+//          Padding(
+//            padding: const EdgeInsets.only(top: 15, left: 10),
+//            child: Text(
+//              'Novidades',
+//              style: kFontStyleBranco,
+//            ),
+//          ),
+//          Padding(
+//            padding: const EdgeInsets.only(top: 5, bottom: 20),
+//            child: Center(
+//              child: SizedBox(
+//                height: 100,
+//                // card height
+//                child: PageView(
+//                  controller: PageController(viewportFraction: 0.9),
+//                  onPageChanged: (int index) => setState(() => _index = index),
+//                  children: <Widget>[
+//                    NewsCardCreator(
+//                      textoNoticia:
+//                          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy',
+//                      nomeMateria: 'Novo Barco em SF',
+//                    ),
+//                    NewsCardCreator(
+//                      textoNoticia:
+//                          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy',
+//                      nomeMateria: 'Best places to Visit',
+//                    ),
+//                  ],
+//                ),
+//              ),
+//            ),
+//          ),
         ],
       ),
     );

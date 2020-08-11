@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:startup/Screens/memberScreen.dart';
 import 'constants.dart';
 
 //import 'package:startup/Screens/memberScreen.dart';
@@ -125,7 +126,14 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           color: Colors.transparent,
                           onPressed: () {
-                            Navigator.pushNamed(context, '/memberScreen');
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => MemberScreen(
+                                  reserva: SemReserva(),
+                                ),
+                              ),
+                            );
                           },
                           child: Text(
                             'Login',

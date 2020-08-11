@@ -1,0 +1,4 @@
+#Tue Aug 11 12:03:30 BRT 2020
+base.0=/Users/mihelicart/AndroidStudioProjects/Startuo new/startUp/build/app/intermediates/transforms/r8/release/0/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

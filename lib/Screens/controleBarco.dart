@@ -1,5 +1,4 @@
 import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:startup/Screens/constants.dart';
 import 'package:startup/widgets/joystick/control_pad.dart';
@@ -14,7 +13,8 @@ class ControleTotal extends StatefulWidget {
 class _ControleTotalState extends State<ControleTotal> {
   int _index = 0;
   List<bool> _isSelected = [false, true, false];
-  Widget widgetEscolhido = Piloto();
+  Widget widgetEscolhido = Musica();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,77 +23,175 @@ class _ControleTotalState extends State<ControleTotal> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
+//      Top Bar
             Container(
-              width: 250,
-              child: Text(
-                'Seja bem vindo ao SeaOne',
-                style: kFontStyleSubTituloLaranja,
+              height: 143,
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.16),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: Offset(6, 6), // shadow direction: bottom right
+                  )
+                ],
+                color: kCorBranco,
+                borderRadius: BorderRadius.vertical(
+                  bottom: Radius.circular(20),
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Center(
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                          left: 20, right: 20, top: 15, bottom: 0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
 //          Autonomia
-                  Column(
-                    children: [
-                      Text('70 NM', style: kFontStyleNumerosDash),
-                      Text(
-                        'Autonomia',
-                        style: kFontStyleIdentificacaoDash,
-                      ),
-                    ],
-                  ),
+                          Column(
+                            children: [
+                              Stack(
+                                children: [
+                                  Text(
+                                    '70',
+                                    style: kFontStyleNumerosDash,
+                                  ),
+                                  Positioned(
+                                    bottom: 5,
+                                    right: 0,
+                                    child: Text(
+                                      'NM',
+                                      style: kFontStyleRegularGreen,
+                                    ),
+                                  ),
+                                  Container(
+                                    height: 10,
+                                    width: 66,
+                                  ),
+                                ],
+                              ),
+                              Text('Autonomia',
+                                  style: kFontStyleIdentificacaoDash),
+                            ],
+                          ),
 //          Bateria
-                  Column(
-                    children: [
-                      Text(
-                        '100%',
-                        style: kFontStyleNumerosDash,
-                      ),
-                      Container(
-                        width: 80,
-                        height: 25,
-                        child: WebsafeSvg.asset('assets/svgs/b3-01.svg',
-                            color: Colors.white),
-                      ),
-                    ],
-                  ),
+//                  Column(
+//                    children: [
+//                      Text(
+//                        '100%',
+//                        style: kFontStyleNumerosDash,
+//                      ),
+//                      Container(
+//                        width: 80,
+//                        height: 25,
+//                        child: WebsafeSvg.asset('assets/svgs/b3-01.svg',
+//                            color: Colors.white),
+//                      ),
+//                    ],
+//                  ),
+                          Column(
+                            children: [
+                              Stack(
+                                children: [
+                                  Text(
+                                    '98',
+                                    style: kFontStyleNumerosDash,
+                                  ),
+                                  Positioned(
+                                    bottom: 5,
+                                    right: 0,
+                                    child: Text(
+                                      '%',
+                                      style: kFontStyleRegularGreen,
+                                    ),
+                                  ),
+                                  Container(
+//                            color: Colors.black,
+                                    height: 10,
+                                    width: 55,
+                                  ),
+                                ],
+                              ),
+                              Container(
+                                width: 80,
+                                height: 25,
+                                child: WebsafeSvg.asset('assets/svgs/b3-01.svg',
+                                    color: kCorVerde),
+                              ),
+                            ],
+                          ),
 
 //          Velociade
-                  Column(
-                    children: [
-                      Text(
-                        '0 knots',
-                        style: kFontStyleNumerosDash,
+                          Column(
+                            children: [
+                              Stack(
+                                children: [
+                                  Text(
+                                    '5.4',
+                                    style: kFontStyleNumerosDash,
+                                  ),
+                                  Positioned(
+                                    bottom: 5,
+                                    right: 0,
+                                    child: Text(
+                                      'Kts',
+                                      style: kFontStyleRegularGreen,
+                                    ),
+                                  ),
+                                  Container(
+                                    height: 10,
+                                    width: 65,
+                                  ),
+                                ],
+                              ),
+                              Text('Velocidade',
+                                  style: kFontStyleIdentificacaoDash),
+                            ],
+                          ),
+                        ],
                       ),
-                      Text('Velocidade', style: kFontStyleIdentificacaoDash),
-                    ],
+                    ),
                   ),
                 ],
               ),
             ),
-
-//            Container(
-//              width: 250,
-//              child: Text(
-//                'Sinta-se a vontade! Quando estiver pronto para sair, ligue os motores no painel. O comando do barco também pode ser feito através do painel virtual abaixo',
-//                style: kFontStyleRegularWhite,
-//              ),
-//            ),
-            Image.asset(
-              'assets/images/barco.png',
+//      Barco
+            Container(
+              height: 255,
+              decoration: new BoxDecoration(
+                image: new DecorationImage(
+                  image: new AssetImage("assets/images/barco.png"),
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
 //      Escolha dos controles
             Container(
-              width: MediaQuery.of(context).size.width,
-              color: kCorBranco,
+              width: MediaQuery.of(context).size.width * 0.9,
+              decoration: BoxDecoration(
+//                boxShadow: [
+//                  BoxShadow(
+//                    color: Colors.black.withOpacity(0.16),
+//                    spreadRadius: 5,
+//                    blurRadius: 7,
+//                    offset: Offset(6, 6), // shadow direction: bottom right
+//                  )
+//                ],
+                color: kCorBrancoTrans,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(20),
+                ),
+              ),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
+                padding: const EdgeInsets.symmetric(horizontal: 0),
                 child: Center(
                   child: ToggleButtons(
-                    color: kCorVerde,
+                    borderRadius: BorderRadius.circular(20),
+                    color: kCorBranco,
                     selectedColor: kCorBranco,
                     fillColor: kCorLaranja,
                     renderBorder: false,
@@ -103,10 +201,32 @@ class _ControleTotalState extends State<ControleTotal> {
 //                  focusColor: Colors.red,
                     children: <Widget>[
                       Container(
-                          width: 80, child: Center(child: Text('Comando'))),
+                        width: MediaQuery.of(context).size.width * 0.9 / 3,
+                        child: Center(
+                          child: Text(
+                            'Comando',
+                            style: kFontStyleSelecionaControle,
+                          ),
+                        ),
+                      ),
                       Container(
-                          width: 80, child: Center(child: Text('Musica'))),
-                      Container(width: 80, child: Center(child: Text('Luzes'))),
+                        width: MediaQuery.of(context).size.width * 0.9 / 3,
+                        child: Center(
+                          child: Text(
+                            'Música',
+                            style: kFontStyleSelecionaControle,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.9 / 3,
+                        child: Center(
+                          child: Text(
+                            'Luzes',
+                            style: kFontStyleSelecionaControle,
+                          ),
+                        ),
+                      ),
                     ],
                     isSelected: _isSelected,
                     onPressed: (int index) {
@@ -131,49 +251,6 @@ class _ControleTotalState extends State<ControleTotal> {
                     },
                   ),
                 ),
-//                child: ToggleButtons(
-//                  fillColor: kCorLaranja,
-//                  children: [
-//                    FlatButton(
-//                      onPressed: () {
-//                        setState(() {
-//                          widgetEscolhido = Piloto();
-//                        });
-//                      },
-//                      child: Text('Comando'),
-//                    ),
-//                    FlatButton(
-//                      onPressed: () {
-//                        setState(() {
-//                          widgetEscolhido = Musica();
-//                        });
-//                      },
-//                      child: Text('Musica'),
-//                    ),
-//                    FlatButton(
-//                      onPressed: () {
-//                        setState(() {
-//                          widgetEscolhido = Luzes();
-//                        });
-//                      },
-//                      child: Text('Luzes'),
-//                    ),
-//                  ],
-//                  isSelected: _isSelected,
-//                  onPressed: (int index) {
-//                    setState(() {
-//                      for (int buttonIndex = 0;
-//                          buttonIndex < _isSelected.length;
-//                          buttonIndex++) {
-//                        if (buttonIndex == index) {
-//                          _isSelected[buttonIndex] = true;
-//                        } else {
-//                          _isSelected[buttonIndex] = false;
-//                        }
-//                      }
-//                    });
-//                  },
-//                ),
               ),
             ),
             widgetEscolhido,
@@ -188,6 +265,9 @@ class Piloto extends StatelessWidget {
   const Piloto({
     Key key,
   }) : super(key: key);
+
+//  var standby = true;
+//  var auto = false;
 
   @override
   Widget build(BuildContext context) {
@@ -211,7 +291,7 @@ class Piloto extends StatelessWidget {
                     child: JoystickView(
                       backgroundColor: kCorBrancoObjetos,
                       iconsColor: kCorVerde,
-                      innerCircleColor: kCorLaranja,
+                      innerCircleColor: kCorCinza,
                     ),
                   ),
                 ),
@@ -229,7 +309,7 @@ class Piloto extends StatelessWidget {
                             width: 85,
                             height: 40,
                             decoration: BoxDecoration(
-                              color: kCorBrancoTrans,
+                              color: kCorLaranja,
                               borderRadius: BorderRadius.all(
                                 Radius.circular(40),
                               ),
@@ -237,7 +317,7 @@ class Piloto extends StatelessWidget {
                             child: Center(
                               child: Text(
                                 'standby',
-                                style: kFontStyleBranco,
+                                style: kFontStyleSelecionaControle,
                               ),
                             ),
                           ),
@@ -257,7 +337,7 @@ class Piloto extends StatelessWidget {
                             child: Center(
                               child: Text(
                                 'auto',
-                                style: kFontStyleBranco,
+                                style: kFontStyleSelecionaControle,
                               ),
                             ),
                           ),
@@ -401,7 +481,7 @@ class _MusicaState extends State<Musica> {
             children: [
               Text(
                 '01:33',
-                style: kFontStyleTinyWhite,
+                style: kFontStyleNumeroMusica,
               ),
               SizedBox(
                 width: 250,
@@ -426,7 +506,7 @@ class _MusicaState extends State<Musica> {
               ),
               Text(
                 '03:47',
-                style: kFontStyleTinyWhite,
+                style: kFontStyleNumeroMusica,
               ),
             ],
           ),
